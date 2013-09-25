@@ -1,0 +1,26 @@
+{
+  "name": "vs-util",
+  "version": "0.0.1",
+  "description": "Utilities commonly used in my projects",
+  "main": "vs-util.js",
+  "scripts": {
+    "test": "node vs-util.js test",
+    "start": "node vs-util.js"
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/d-vova/vs-util.git"
+  },
+  "keywords": [
+    'util',
+    'utility'
+  ],
+  "author": "Vladimir Darmin",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
