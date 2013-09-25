@@ -160,6 +160,90 @@ Server
 Present
 -------
 
+Format JSON structure into a tree-like string representation
+
+```javascript
+var json = {
+  ENV: 'DEV',
+  NAME: 'vs-util presentation test',
+  PORT: 8080,
+  STUN: { host: 'stun.l.google.com', port: 19302 },
+  MONGO: 'mongodb://localhost/vs-util',
+  DB: {
+    logs: {
+      dropSync: false, batchSize: 10000,
+      create: { capped: true, size: 123456789, autoIndexId: true },
+      indexes: [ [ { id: 1 } ], [ { timestamp: 1 } ] ]
+    }
+  },
+  SERVICES_MONGO: 'mongodb://heroku:1234567890abcdef1234567890abcdef@dharma.mongohq.com:10074/app12346789',
+  SERVICES_DB: {
+    services: { dropSync: false, batchSize: 10000 },
+    snapshots: { dropSync: false, batchSize: 10000 }
+  },
+  SERVICES_REFRESH: 500,
+  SERVICES_TIMEOUT: 500,
+  SERVICES_DISCOVER: 60000,
+  SERVICES_HEARTBEAT: 100,
+  SERVICES_SNAPSHOT: 1000,
+  LOG: { debug: -1, normal: 0, warning: 2, error: 3 }
+}
+
+
+var title = 'CONFIG', depth = 4, prefix = '// ';
+var formatted = util.present(title, json, depth, prefix);
+
+console.log(formatted);
+```
+
+For console output there is a shortcut
+
+```javascript
+util.present.log(title, json, depth, prefix);
+```
+
+The output in both cases is going to look like:
+
+```
+// * config
+// |-- ENV                => "DEV"
+// |-- NAME               => "vs-util presentation test"
+// |-- PORT               => 8080
+// |-- STUN
+// | |-- host               => "stun.l.google.com"
+// | `-- port               => 19302
+// |-- MONGO              => "mongodb://localhost/vs-util"
+// |-- DB
+// | `-- logs
+// |   |-- dropSync           => false
+// |   |-- batchSize          => 10000
+// |   |-- create
+// |   | |-- capped             => true
+// |   | |-- size               => 123456789
+// |   | `-- autoIndexId        => true
+// |   `-- indexes
+// |     |-- 0                  => [{"id":1}]
+// |     `-- 1                  => [{"timestamp":1}]
+// |-- SERVICES_MONGO     => "mongodb://heroku:1234567890abcdef1234567890abcdef@dharma.mongohq.com:10074/app12346789"
+// |-- SERVICES_DB
+// | |-- services
+// | | |-- dropSync           => false
+// | | `-- batchSize          => 10000
+// | `-- snapshots
+// |   |-- dropSync           => false
+// |   `-- batchSize          => 10000
+// |-- SERVICES_REFRESH   => 500
+// |-- SERVICES_TIMEOUT   => 500
+// |-- SERVICES_DISCOVER  => 60000
+// |-- SERVICES_HEARTBEAT => 100
+// |-- SERVICES_SNAPSHOT  => 1000
+// `-- LOG
+//   |-- debug              => -1
+//   |-- normal             => 0
+//   |-- warning            => 2
+//   `-- error              => 3
+```
+
 
 Generate
 --------
