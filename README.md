@@ -248,4 +248,43 @@ The output in both cases is going to look like:
 Generate
 --------
 
+Random buffer of given length
 
+```javascript
+var buffer = util.generate(8);
+
+console.log(buffer);
+
+// buffer <Buffer 41 6b 9e 2a 79 30 ba 67>
+```
+
+
+#### Hex ####
+
+Generate random bytes of given length in hex
+
+```javascript
+var hex = util.generate.hex(8);
+
+console.log(hex);
+
+// hex 5f7dafd337bb870b
+```
+
+#### ID ####
+
+Generate random unique id (16 bytes long)
+
+```javascript
+var id = util.generate.id();
+
+console.log(id);
+
+// id 42741578f9f17000bd7dc0bcc7a360ae
+```
+
+
+License
+-------
+
+MIT
