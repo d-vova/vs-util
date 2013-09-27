@@ -1,6 +1,6 @@
 {
   "name": "vs-util",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Utilities commonly used in my projects",
   "main": "vs-util.js",
   "scripts": {
