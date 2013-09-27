@@ -46,7 +46,7 @@ var data = json, callback = function callback ( error, value ) {
   console.log(error || value);
 }
 
-util.request(method, host, port, path, data, callback);
+util.http.request(method, host, port, path, data, callback);
 ```
 
 
@@ -55,7 +55,7 @@ util.request(method, host, port, path, data, callback);
 Convert JSON object into format used by HTTP Request
 
 ```javascript
-var encoded = util.encode(json);
+var encoded = util.http.encode(json);
 
 console.log(encoded);
 
@@ -68,7 +68,7 @@ console.log(encoded);
 Convert encoded object back into JSON format
 
 ```javascript
-var decoded = util.decode(encoded);
+var decoded = util.http.decode(encoded);
 
 console.log(decoded);
 
@@ -81,10 +81,10 @@ console.log(decoded);
 *GET*, *POST*, *PUT*, and *DELETE* have corresponding shortcuts
 
 ```javascript
-util.request.get(host, port, path, data, callback);
-util.request.post(host, port, path, data, callback);
-util.request.put(host, port, path, data, callback);
-util.request.del(host, port, path, data, callback);
+util.http.get(host, port, path, data, callback);
+util.http.post(host, port, path, data, callback);
+util.http.put(host, port, path, data, callback);
+util.http.del(host, port, path, data, callback);
 ```
 
 
