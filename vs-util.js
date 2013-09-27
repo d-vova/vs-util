@@ -1,11 +1,24 @@
-exports.CALLBACK = function CALLBACK ( ) { }
+var CALLBACK = exports.CALLBACK = function CALLBACK ( ) { }
 
-exports.http = require('./lib/http');
-exports.auth = require('./lib/auth');
-exports.server = require('./lib/server');
+var http = exports.http = require('./lib/http');
+var auth = exports.auth = require('./lib/auth');
+var server = exports.server = require('./lib/server');
 
-exports.present = require('./lib/present');
-exports.generate = require('./lib/generate');
+var present = exports.present = require('./lib/present');
+var generate = exports.generate = require('./lib/generate');
+
+
+var log = exports.log = function log ( shouldLog ) {
+  server.log.isOn = shouldLog;
+}
+
+log.on = function logOn ( ) {
+  server.log.isOn = true;
+}
+
+log.off = function logOff ( ) {
+  server.log.isOn = false;
+}
 
 
 if ( require.main === module && process.argv[2] == 'test' ) {
