@@ -41,12 +41,13 @@ console.log(json);
 Send HTTP request
 
 ```javascript
-var method = 'GET', host = 'www.google.com', port = 80, path = '/';
+var method = util.http.GET, type = util.http.FORM,
+var host = 'www.google.com', port = 80, path = '/';
 var data = json, callback = function callback ( error, value ) {
   console.log(error || value);
 }
 
-util.http.request(method, host, port, path, data, callback);
+util.http.request(method, host, port, path, data, type, callback);
 ```
 
 
@@ -79,12 +80,28 @@ console.log(decoded);
 #### Shortcuts ####
 
 *GET*, *POST*, *PUT*, and *DELETE* have corresponding shortcuts
+with their corresponding data types *FORM*, *JSON*, *HTML*, and *TEXT*
 
 ```javascript
 util.http.get(host, port, path, data, callback);
+
 util.http.post(host, port, path, data, callback);
+util.http.post.form(host, port, path, data, callback);
+util.http.post.json(host, port, path, data, callback);
+util.http.post.html(host, port, path, data, callback);
+util.http.post.text(host, port, path, data, callback);
+
 util.http.put(host, port, path, data, callback);
+util.http.put.form(host, port, path, data, callback);
+util.http.put.json(host, port, path, data, callback);
+util.http.put.html(host, port, path, data, callback);
+util.http.put.text(host, port, path, data, callback);
+
 util.http.del(host, port, path, data, callback);
+util.http.del.form(host, port, path, data, callback);
+util.http.del.json(host, port, path, data, callback);
+util.http.del.html(host, port, path, data, callback);
+util.http.del.text(host, port, path, data, callback);
 ```
 
 
