@@ -41,12 +41,13 @@ console.log(json);
 Send HTTP request
 
 ```javascript
-var method = 'GET', host = 'www.google.com', port = 80, path = '/';
+var method = util.http.GET, type = util.http.FORM,
+var host = 'www.google.com', port = 80, path = '/';
 var data = json, callback = function callback ( error, value ) {
   console.log(error || value);
 }
 
-util.http.request(method, host, port, path, data, callback);
+util.http.request(method, host, port, path, data, type, callback);
 ```
 
 
@@ -79,6 +80,7 @@ console.log(decoded);
 #### Shortcuts ####
 
 *GET*, *POST*, *PUT*, and *DELETE* have corresponding shortcuts
+with their corresponding data types *FORM*, *JSON*, *HTML*, and *TEXT*
 
 ```javascript
 util.http.get(host, port, path, data, callback);
