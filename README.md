@@ -84,9 +84,24 @@ with their corresponding data types *FORM*, *JSON*, *HTML*, and *TEXT*
 
 ```javascript
 util.http.get(host, port, path, data, callback);
+
 util.http.post(host, port, path, data, callback);
+util.http.post.form(host, port, path, data, callback);
+util.http.post.json(host, port, path, data, callback);
+util.http.post.html(host, port, path, data, callback);
+util.http.post.text(host, port, path, data, callback);
+
 util.http.put(host, port, path, data, callback);
+util.http.put.form(host, port, path, data, callback);
+util.http.put.json(host, port, path, data, callback);
+util.http.put.html(host, port, path, data, callback);
+util.http.put.text(host, port, path, data, callback);
+
 util.http.del(host, port, path, data, callback);
+util.http.del.form(host, port, path, data, callback);
+util.http.del.json(host, port, path, data, callback);
+util.http.del.html(host, port, path, data, callback);
+util.http.del.text(host, port, path, data, callback);
 ```
 
 
